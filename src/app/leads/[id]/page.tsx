@@ -157,14 +157,12 @@ export default function LeadDetail({ params }: { params: Promise<{ id: string }>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-background rounded-lg p-3 border border-border/50 text-center">
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Buying Intent</div>
-                  <div className="text-3xl font-light tracking-tight">{lead.buying_intent_score ?? '-'}</div>
-                </div>
-                <div className="bg-background rounded-lg p-3 border border-border/50 text-center">
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Property Fit</div>
-                  <div className="text-3xl font-light tracking-tight">{lead.property_fit_score ?? '-'}</div>
+              <div className="bg-background rounded-lg p-6 border border-border/50 text-center flex flex-col items-center justify-center">
+                <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2 font-medium">Overall Score</div>
+                <div className="text-5xl font-light tracking-tight text-primary">
+                  {lead.buying_intent_score !== undefined && lead.buying_intent_score !== null 
+                    ? lead.buying_intent_score 
+                    : '-'}
                 </div>
               </div>
               
